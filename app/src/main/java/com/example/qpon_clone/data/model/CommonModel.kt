@@ -1,4 +1,4 @@
-package com.example.qpon_clone.model
+package com.example.qpon_clone.data.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -11,8 +11,19 @@ data class ApiResponse<T>(
     val message: String,
     @SerializedName("data")
     val data: T,
+)
+
+data class ApiResponseWithMeta<T>(
+    @SerializedName("status")
+    val status: String,
+    @SerializedName("code")
+    val code: Int,
+    @SerializedName("message")
+    val message: String,
+    @SerializedName("data")
+    val data: T,
     @SerializedName("meta")
-    val meta: Meta? = null
+    val meta: Meta
 )
 
 
