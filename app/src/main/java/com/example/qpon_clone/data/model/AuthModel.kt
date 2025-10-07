@@ -1,4 +1,4 @@
-package com.example.qpon_clone.model
+package com.example.qpon_clone.data.model
 
 import com.google.gson.annotations.SerializedName
 

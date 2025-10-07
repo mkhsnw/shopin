@@ -5,10 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.qpon_clone.model.LoginRequest
-import com.example.qpon_clone.model.LoginResponse
-import com.example.qpon_clone.model.RegisterRequest
-import com.example.qpon_clone.model.RegisterResponse
+import com.example.qpon_clone.data.model.LoginRequest
+import com.example.qpon_clone.data.model.LoginResponse
+import com.example.qpon_clone.data.model.RegisterRequest
+import com.example.qpon_clone.data.model.RegisterResponse
 import com.example.qpon_clone.remote.RetrofitInstance
 import com.example.qpon_clone.remote.api.AuthService
 import com.example.qpon_clone.remote.Result
