@@ -136,7 +136,7 @@ fun PromoItemCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White)
+        colors = CardDefaults.cardColors(containerColor = Color.White),
     ) {
         Row(modifier = Modifier.padding(12.dp)) {
             // Restaurant Image Placeholder

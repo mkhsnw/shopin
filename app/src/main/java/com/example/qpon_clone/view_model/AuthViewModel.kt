@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.qpon_clone.model.LoginRequest
 import com.example.qpon_clone.model.LoginResponse
+import com.example.qpon_clone.model.RegisterRequest
 import com.example.qpon_clone.model.RegisterResponse
 import com.example.qpon_clone.remote.RetrofitInstance
 import com.example.qpon_clone.remote.api.AuthService
@@ -45,6 +46,28 @@ class AuthViewModel (
             } catch (e: Exception){
                 _loginResponse.value = Result.Error(e)
                 Log.i("AuthViewModel", "Login error: ${e.localizedMessage}")
+            }
+        }
+    }
+
+    fun register(name: String, email: String, password: String) {
+        _registerResponse.value = Result.Loading
+        viewModelScope.launch {
+            try {
+                val request = RegisterRequest(name,email,password)
+                val response = authService.register(request)
+                if(response.isSuccessful) {
+                    response.body()?.let {
+                        _registerResponse.value = Result.Success(it)
+
+                    } ?: run {
+                        _registerResponse.value = Result.Error(Exception("Empty Response Body"))
+                        Log.e("AuthViewModel", "Register failed: Empty response body")
+                    }
+                }
+            }catch (e: Exception) {
+                _registerResponse.value = Result.Error(e)
+                Log.e("AuthViewModel", "Register error: ${e.localizedMessage}")
             }
         }
     }
